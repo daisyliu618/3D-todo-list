@@ -19,11 +19,13 @@ class NewTodoForm extends Component {
     this.props.createTodo({...this.state, id: uuidv4(), completed: false });
     this.setState({ task: "" });
   }
+
+  
   render() {
     return (
       <form className='NewTodoForm' onSubmit={this.handleSubmit}>
         <label htmlFor='task'>New Todo</label>
-        <input
+        <input 
           type='text'
           placeholder='New Todo'
           id='task'
@@ -31,9 +33,11 @@ class NewTodoForm extends Component {
           value={this.state.task}
           onChange={this.handleChange}
         />
-        <button>Add Todo</button>
+        <button >Add Todo</button>
       </form>
     );
   }
+
+
 }
 export default NewTodoForm;

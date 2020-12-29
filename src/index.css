@@ -1,12 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+
 html,
 body {
   background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
   font-size: 1.1rem;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Poppins', sans-serif;
   height: 100%;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+
 }
+
+
