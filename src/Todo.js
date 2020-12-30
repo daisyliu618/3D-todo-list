@@ -67,10 +67,10 @@ class Todo extends Component {
         {result}
         <div className='Todo-buttons'>
           <button onClick={this.toggleForm}>
-            <i class='fas fa-pen' />
+          <i class="fas fa-pencil-alt"></i>
           </button>
           <button onClick={this.handleRemove}>
-            <i class='fas fa-trash' />
+          <i class="fas fa-trash"></i>
           </button>
         </div>
       </TransitionGroup>
