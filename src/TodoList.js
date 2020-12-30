@@ -16,16 +16,33 @@ class TodoList extends Component {
     this.update = this.update.bind(this);
     this.toggleCompletion = this.toggleCompletion.bind(this);
   }
-  create(newTodo) {
-    this.setState({
-      todos: [...this.state.todos, newTodo]
-    });
-  }
+
+//local storage
+
+  componentDidUpdate(){
+    localStorage.setItem('todos',JSON.stringify(this.state.todos));
+}
+  componentDidMount(){
+    const todos=JSON.parse(localStorage.getItem("todos"));
+    if (todos!== null){
+      this.setState({todos:todos})
+    }
+}
+
+
+
+create(newTodo) {
+  this.setState({
+    todos: [...this.state.todos, newTodo]
+  });
+}
+
   remove(id) {
     this.setState({
       todos: this.state.todos.filter(t => t.id !== id)
     });
   }
+
   update(id, updatedTask) {
     const updatedTodos = this.state.todos.map(todo => {
       if (todo.id === id) {
@@ -43,13 +60,8 @@ class TodoList extends Component {
       }
       return todo;
     });
-    this.setState({ todos: updatedTodos });
+    
   }
-
-//   handleMouseIn(){
-//     const h1 = document.querySelector("h1");
-//     h1.style.transform = "translateZ(200px) rotateZ(-45deg)";
-// }
 
 
   render() {
@@ -119,7 +131,7 @@ class TodoList extends Component {
     input.style.transform = "translateZ(0px)";
     ul.style.transform = "translateZ(0px)";
   };
-    
+
 
 
     return (
@@ -130,7 +142,7 @@ class TodoList extends Component {
         <div className="Title">
         <img src={logo} alt="logo" />
         <h1 >
-          Get To Work! <span>An Animated Todo List Made With React Hooks.</span>
+          Get To Work! <span>An Animated Todo List By Daisy.</span>
         </h1>
         </div>
         <NewTodoForm createTodo={this.create} />
@@ -142,5 +154,7 @@ class TodoList extends Component {
       </div>
     );
   }
+
+
 }
 export default TodoList;
