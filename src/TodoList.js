@@ -50,7 +50,7 @@ create(newTodo) {
       }
       return todo;
     });
-    this.setState({ todos: updatedTodos });
+    this.setState({ todos: updatedTodos});
   }
 
   toggleCompletion(id) {
@@ -60,9 +60,8 @@ create(newTodo) {
       }
       return todo;
     });
-    
+    this.setState({ todos: updatedTodos });
   }
-
 
   render() {
     const todos = this.state.todos.map(todo => {
